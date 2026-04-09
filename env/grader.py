@@ -14,7 +14,7 @@ def grade(task, action):
     expected_impact = expected["impact"].lower()
     expected_fix = expected["fix"].lower()
 
-    if expected_issue in issue:
+    if expected_issue and expected_issue in issue:
         score += 0.4
 
     if any(word in impact for word in expected_impact.split()):
