@@ -28,3 +28,4 @@ def grade(task, action):
         score = epsilon
     elif score >= 1.0:
         score = 1.0 - epsilon
+    return score
