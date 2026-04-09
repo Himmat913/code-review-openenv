@@ -23,7 +23,7 @@ def grade(task, action):
     if any(word in fix for word in expected_fix.split()):
         score += 0.3
 
-    epsilon = 1e-6
-    score = max(epsilon, min(score, 1.0 - epsilon))
+    score = round(score, 4)
+    score = max(0.0001, min(score, 0.9999))
 
-    return round(score, 4)
+    return score
