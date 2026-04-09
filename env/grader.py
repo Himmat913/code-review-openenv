@@ -14,19 +14,15 @@ def grade(task, action):
     expected_impact = expected["impact"].lower()
     expected_fix = expected["fix"].lower()
 
-    # Issue match
     if expected_issue in issue:
         score += 0.4
 
-    # Impact match
     if any(word in impact for word in expected_impact.split()):
         score += 0.3
 
-    # Fix match
     if any(word in fix for word in expected_fix.split()):
         score += 0.3
 
-    # Strict clamp (0,1) using epsilon
     epsilon = 1e-6
     score = max(epsilon, min(score, 1.0 - epsilon))
 
