@@ -24,8 +24,5 @@ def grade(task, action):
         score += 0.3
 
     epsilon = 1e-6
-    if score <= 0.0:
-        score = epsilon
-    elif score >= 1.0:
-        score = 1.0 - epsilon
+    score = max(epsilon, min(1.0 - epsilon, score))
     return score
